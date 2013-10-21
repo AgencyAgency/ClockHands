@@ -27,16 +27,19 @@
     int secPart = secsInt % 60;
     double milliPart = secsDouble - secsInt;
     double s = secPart + milliPart;
-    int m = secsInt/60 % 60;
     
-    self.secondsLabel.text = [NSString stringWithFormat:@"%i:%02.03f", m, s];
+    int minsInt = secsInt/60 % 60;
+    double m = minsInt + s/60.0;
+    
+    int timeZoneOffset = -10;
+    int hoursInt = (secsInt/3600 + timeZoneOffset) % 12;
+    double h = hoursInt + m/60.0;
+    
+    self.secondsLabel.text = [NSString stringWithFormat:@"%i:%02i:%02.03f", hoursInt, minsInt, s];
     
     [self.clockHandsView setSeconds:s];
-    [self.clockHandsView setMinutes:m+s/60.0];
-//    CGFloat percentage = s / 60.0;
-//    [self.secondsColorView changeColorForPercentage:percentage];
-//    [self.rgbColorView changeColorForPercentage:percentage];
-//    [self.grayscaleColorView changeColorForPercentage:percentage];
+    [self.clockHandsView setMinutes:m];
+    [self.clockHandsView setHours:h];
 }
 
 - (void)viewDidLoad

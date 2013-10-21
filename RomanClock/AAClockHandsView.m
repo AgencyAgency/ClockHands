@@ -16,6 +16,7 @@
 {
     [self drawHandForSeconds:self.seconds];
     [self drawHandForMinutes:self.minutes];
+    [self drawHandForHours:self.hours];
 }
 
 - (void)setSeconds:(CGFloat)seconds
@@ -46,6 +47,15 @@
     [self drawHandForDegree:degrees
                  handLength:handLength
                   handWidth:4.0];
+}
+
+- (void)drawHandForHours:(CGFloat)hours
+{
+    CGFloat degrees = 360.0 + 90.0 - hours/12.0*360.0;
+    CGFloat handLength = self.bounds.size.width/2.0*0.6;
+    [self drawHandForDegree:degrees
+                 handLength:handLength
+                  handWidth:6.0];
 }
 
 - (void)drawHandForDegree:(CGFloat)degree handLength:(CGFloat)handLength handWidth:(CGFloat)handWidth

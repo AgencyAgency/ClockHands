@@ -11,4 +11,5 @@
 @interface AAClockHandsView : UIView
 @property (nonatomic, assign) CGFloat seconds;
 @property (nonatomic, assign) CGFloat minutes;
+@property (nonatomic, assign) CGFloat hours;
 @end
