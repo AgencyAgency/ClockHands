@@ -26,10 +26,13 @@
 - (void)drawHandForSeconds:(CGFloat)seconds
 {
     CGFloat degrees = 360.0 + 90.0 - seconds/60.0*360.0;
-    [self drawHandForDegree:degrees];
+    CGFloat handLength = self.bounds.size.width/2.0*0.9;
+    [self drawHandForDegree:degrees
+                 handLength:handLength
+                  handWidth:2.0];
 }
 
-- (void)drawHandForDegree:(CGFloat)degree
+- (void)drawHandForDegree:(CGFloat)degree handLength:(CGFloat)handLength handWidth:(CGFloat)handWidth
 {
     CGFloat clockWidth = self.bounds.size.width;
     CGFloat clockHeight = self.bounds.size.height;
@@ -40,7 +43,7 @@
     // Convert polar coordinates (r, theta) to cartesian (x, y)
     
     CGFloat theta = degree * 3.14159 * 2.0 / 360.0;
-    CGFloat r = clockWidth/2.0;
+    CGFloat r = handLength;
     
     CGFloat x = r * cos(theta);
     CGFloat y = -r * sin(theta);
@@ -54,7 +57,7 @@
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
     
     /* Set the width for the line */
-    CGContextSetLineWidth(currentContext,5.0f);
+    CGContextSetLineWidth(currentContext, handWidth);
     
     /* Start the line at this point */
     CGContextMoveToPoint(currentContext, clockCenter.x, clockCenter.y);
