@@ -46,6 +46,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clockHandsView" destination="Xxf-Z4-nL0" id="bKN-TU-PBZ"/>
                         <outlet property="secondsLabel" destination="Swo-6F-qc1" id="laI-iR-i1d"/>
                     </connections>
                 </viewController>

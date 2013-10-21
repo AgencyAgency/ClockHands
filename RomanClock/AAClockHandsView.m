@@ -14,10 +14,22 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    [self drawHourHandForDegree:180];
+    [self drawHandForSeconds:self.seconds];
 }
 
-- (void)drawHourHandForDegree:(CGFloat)degree
+- (void)setSeconds:(CGFloat)seconds
+{
+    _seconds = seconds;
+    [self setNeedsDisplay];
+}
+
+- (void)drawHandForSeconds:(CGFloat)seconds
+{
+    CGFloat degrees = 360.0 + 90.0 - seconds/60.0*360.0;
+    [self drawHandForDegree:degrees];
+}
+
+- (void)drawHandForDegree:(CGFloat)degree
 {
     CGFloat clockWidth = self.bounds.size.width;
     CGFloat clockHeight = self.bounds.size.height;

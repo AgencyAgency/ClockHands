@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AAClockHandsView : UIView
-
+@property (nonatomic, assign) CGFloat seconds;
 @end

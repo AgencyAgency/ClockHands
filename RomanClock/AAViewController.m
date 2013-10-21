@@ -7,11 +7,13 @@
 //
 
 #import "AAViewController.h"
+#import "AAClockHandsView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface AAViewController ()
 @property (strong, nonatomic) CADisplayLink *displayLink;
 @property (weak, nonatomic) IBOutlet UILabel *secondsLabel;
+@property (weak, nonatomic) IBOutlet AAClockHandsView *clockHandsView;
 @end
 
 @implementation AAViewController
@@ -28,7 +30,8 @@
     
     self.secondsLabel.text = [NSString stringWithFormat:@":%02.03f", s];
     
-    CGFloat percentage = s / 60.0;
+    [self.clockHandsView setSeconds:s];
+//    CGFloat percentage = s / 60.0;
 //    [self.secondsColorView changeColorForPercentage:percentage];
 //    [self.rgbColorView changeColorForPercentage:percentage];
 //    [self.grayscaleColorView changeColorForPercentage:percentage];
