@@ -15,6 +15,7 @@
 - (void)drawRect:(CGRect)rect
 {
     [self drawHandForSeconds:self.seconds];
+    [self drawHandForMinutes:self.minutes];
 }
 
 - (void)setSeconds:(CGFloat)seconds
@@ -23,13 +24,28 @@
     [self setNeedsDisplay];
 }
 
+- (void)setMinutes:(CGFloat)minutes
+{
+    _minutes = minutes;
+    [self setNeedsDisplay];
+}
+
 - (void)drawHandForSeconds:(CGFloat)seconds
 {
     CGFloat degrees = 360.0 + 90.0 - seconds/60.0*360.0;
-    CGFloat handLength = self.bounds.size.width/2.0*0.9;
+    CGFloat handLength = self.bounds.size.width/2.0*0.95;
     [self drawHandForDegree:degrees
                  handLength:handLength
                   handWidth:2.0];
+}
+
+- (void)drawHandForMinutes:(CGFloat)minutes
+{
+    CGFloat degrees = 360.0 + 90.0 - minutes/60.0*360.0;
+    CGFloat handLength = self.bounds.size.width/2.0*0.8;
+    [self drawHandForDegree:degrees
+                 handLength:handLength
+                  handWidth:4.0];
 }
 
 - (void)drawHandForDegree:(CGFloat)degree handLength:(CGFloat)handLength handWidth:(CGFloat)handWidth

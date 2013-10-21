@@ -27,10 +27,12 @@
     int secPart = secsInt % 60;
     double milliPart = secsDouble - secsInt;
     double s = secPart + milliPart;
+    int m = secsInt/60 % 60;
     
-    self.secondsLabel.text = [NSString stringWithFormat:@":%02.03f", s];
+    self.secondsLabel.text = [NSString stringWithFormat:@"%i:%02.03f", m, s];
     
     [self.clockHandsView setSeconds:s];
+    [self.clockHandsView setMinutes:m+s/60.0];
 //    CGFloat percentage = s / 60.0;
 //    [self.secondsColorView changeColorForPercentage:percentage];
 //    [self.rgbColorView changeColorForPercentage:percentage];
