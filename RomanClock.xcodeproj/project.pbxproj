@@ -19,6 +19,7 @@
 		CF0F5418180DE81700B96FAD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0F5416180DE81700B96FAD /* MainStoryboard.storyboard */; };
 		CF0F541B180DE81700B96FAD /* AAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F541A180DE81700B96FAD /* AAViewController.m */; };
 		CF0F5423180DE8A900B96FAD /* AAClockHandsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F5422180DE8A900B96FAD /* AAClockHandsView.m */; };
+		CF9CFED21814CB65004EEC39 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9CFED11814CB65004EEC39 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CF0F541A180DE81700B96FAD /* AAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAViewController.m; sourceTree = "<group>"; };
 		CF0F5421180DE8A900B96FAD /* AAClockHandsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAClockHandsView.h; sourceTree = "<group>"; };
 		CF0F5422180DE8A900B96FAD /* AAClockHandsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAClockHandsView.m; sourceTree = "<group>"; };
+		CF9CFED11814CB65004EEC39 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9CFED21814CB65004EEC39 /* QuartzCore.framework in Frameworks */,
 				CF0F53FF180DE81700B96FAD /* UIKit.framework in Frameworks */,
 				CF0F5401180DE81700B96FAD /* Foundation.framework in Frameworks */,
 				CF0F5403180DE81700B96FAD /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +79,7 @@
 		CF0F53FD180DE81700B96FAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF9CFED11814CB65004EEC39 /* QuartzCore.framework */,
 				CF0F53FE180DE81700B96FAD /* UIKit.framework */,
 				CF0F5400180DE81700B96FAD /* Foundation.framework */,
 				CF0F5402180DE81700B96FAD /* CoreGraphics.framework */,
@@ -307,6 +311,7 @@
 				CF0F5420180DE81700B96FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
