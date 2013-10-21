@@ -31,9 +31,20 @@
     [self setNeedsDisplay];
 }
 
+- (void)setHours:(CGFloat)hours
+{
+    _hours = hours;
+    [self setNeedsDisplay];
+}
+
+- (CGFloat)clockDegreesForPercentage:(CGFloat)percentage
+{
+    return 360.0 + 90.0 - percentage*360.0;
+}
+
 - (void)drawHandForSeconds:(CGFloat)seconds
 {
-    CGFloat degrees = 360.0 + 90.0 - seconds/60.0*360.0;
+    CGFloat degrees = [self clockDegreesForPercentage:seconds/60.0];
     CGFloat handLength = self.bounds.size.width/2.0*0.95;
     [self drawHandForDegree:degrees
                  handLength:handLength
@@ -42,7 +53,7 @@
 
 - (void)drawHandForMinutes:(CGFloat)minutes
 {
-    CGFloat degrees = 360.0 + 90.0 - minutes/60.0*360.0;
+    CGFloat degrees = [self clockDegreesForPercentage:minutes/60.0];
     CGFloat handLength = self.bounds.size.width/2.0*0.8;
     [self drawHandForDegree:degrees
                  handLength:handLength
@@ -51,7 +62,7 @@
 
 - (void)drawHandForHours:(CGFloat)hours
 {
-    CGFloat degrees = 360.0 + 90.0 - hours/12.0*360.0;
+    CGFloat degrees = [self clockDegreesForPercentage:hours/12.0];
     CGFloat handLength = self.bounds.size.width/2.0*0.6;
     [self drawHandForDegree:degrees
                  handLength:handLength
